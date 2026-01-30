@@ -69,29 +69,53 @@
         ::-webkit-scrollbar-track { background: var(--deep-blue); }
         ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--comment-grey); }
-        .img-logo{
-            width: 200px;
-            height: 100px;
-        }
+        
+   .nav-container {
+    height: 70px; /* Altura da barra de navegação */
+    display: flex;
+    align-items: center; /* Alinha os links verticalmente no centro */
+    position: relative;
+}
+
+.img-logo {
+    width: auto;
+    height: 150px; /* Tamanho original */
+    position: absolute;
+    left: 0;
+    top: 50%; /* Move o topo da logo para o meio da nav */
+    transform: translateY(-50%); /* Sobe a logo metade da própria altura */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+}
+
+/* Quando encolher, ela continua centralizada, mas muda de altura */
+.img-logo.shrink {
+    height: 50px; 
+    /* O translateY(-50%) continua agindo aqui automaticamente */
+}
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Toast Notification -->
     <div id="toast" class="toast font-brand">Copiado para a área de transferência!</div>
+<nav class="sticky top-0 z-40 bg-[#0D1117]/80 backdrop-blur-md border-b border-[#30363D] px-6">
+    <div class="max-w-6xl mx-auto nav-container">
+        
+        <div class="flex items-center" style="width: 200px;"> 
+            <img class="img-logo" src="Logo /square-logo-vertical.png" alt="Squarecom">
+        </div>
 
-    <nav class="sticky top-0 z-40 bg-[#0D1117]/80 backdrop-blur-md border-b border-[#30363D] px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2 sm">
-               <img class="img-logo" src="Logo /square-logo-vertical.png" alt="">
-            </div>
+        <div class="flex-grow flex justify-end">
             <div class="hidden md:flex gap-8 font-ui text-sm uppercase tracking-widest text-[--comment-grey]">
                 <a href="#cores" class="hover:text-[--orange] transition-colors">Cores</a>
                 <a href="#tipografia" class="hover:text-[--orange] transition-colors">Tipografia</a>
                 <a href="#preview" class="hover:text-[--orange] transition-colors">Interface</a>
             </div>
         </div>
-    </nav>
+
+    </div>
+</nav>
 
     <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
         
@@ -291,7 +315,7 @@
     <footer class="border-t border-[--border-color] py-12 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:row justify-between items-center gap-6">
             <div class="font-brand font-bold text-xl tracking-tight">SQUARECOM</div>
-            <p class="font-mono text-[--comment-grey] text-xs">© 2024 DESIGN_SYSTEM // ALL RIGHTS RESERVED</p>
+            <p class="font-mono text-[--comment-grey] text-xs">© 2026 DESIGN_SYSTEM // ALL RIGHTS RESERVED</p>
             <div class="flex gap-4">
                 <div class="w-8 h-8 rounded bg-[--border-color] hover:bg-[--orange] transition-colors cursor-pointer"></div>
                 <div class="w-8 h-8 rounded bg-[--border-color] hover:bg-[--orange] transition-colors cursor-pointer"></div>
@@ -314,6 +338,32 @@
                 toast.style.display = 'none';
             }, 2500);
         }
+       
+    window.addEventListener('scroll', function() {
+        const logo = document.querySelector('.img-logo');
+        
+        // Se o scroll passar de 50px, adiciona a classe 'shrink'
+        if (window.scrollY > 50) {
+            logo.classList.add('shrink');
+        } else {
+            logo.classList.remove('shrink');
+        }
+    });
+
+    // Sua função copyHex anterior continua aqui...
+    function copyHex(hex) {
+        // ... (código que você já tem)
+    }
+
+    window.addEventListener('scroll', function() {
+        const logo = document.querySelector('.img-logo');
+        if (window.scrollY > 50) {
+            logo.classList.add('shrink');
+        } else {
+            logo.classList.remove('shrink');
+        }
+    });
+
     </script>
 </body>
 </html>
