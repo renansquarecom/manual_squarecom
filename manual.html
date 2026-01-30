@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQUARECOM | Manual de Identidade Visual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-blue: #0D1117;
+            --orange: #FF6B35;
+            --code-white: #E6E6E6;
+            --comment-grey: #A0A0A0;
+            --border-color: #30363D;
+        }
+
+        body {
+            background-color: var(--deep-blue);
+            color: var(--code-white);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-brand { font-family: 'Space Grotesk', sans-serif; }
+        .font-ui { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        .color-card:hover .copy-hint {
+            opacity: 1;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+            z-index: 50;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .terminal-window {
+            background: #161B22;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: #21262D;
+            padding: 8px 12px;
+            display: flex;
+            gap: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep-blue); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--comment-grey); }
+        .img-logo{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast font-brand">Copiado para a área de transferência!</div>
+
+    <nav class="sticky top-0 z-40 bg-[#0D1117]/80 backdrop-blur-md border-b border-[#30363D] px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2 sm">
+               <img class="img-logo" src="Logo /square-logo-vertical.png" alt="">
+            </div>
+            <div class="hidden md:flex gap-8 font-ui text-sm uppercase tracking-widest text-[--comment-grey]">
+                <a href="#cores" class="hover:text-[--orange] transition-colors">Cores</a>
+                <a href="#tipografia" class="hover:text-[--orange] transition-colors">Tipografia</a>
+                <a href="#preview" class="hover:text-[--orange] transition-colors">Interface</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+        
+        <!-- Header Section -->
+        <header class="mb-20">
+            <div class="inline-block px-3 py-1 border border-[--orange] text-[--orange] font-mono text-xs mb-6 rounded">
+                v2.0 DOCUMENTATION
+            </div>
+            <h1 class="font-brand text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Manual de <span class="text-[--orange]">Identidade</span> <br> Visual Digital
+            </h1>
+            <p class="text-[--comment-grey] text-lg md:text-xl max-w-2xl leading-relaxed">
+                A estética da Squarecom é baseada no conceito <span class="text-[--code-white] italic">"Terminal Vivo"</span>. 
+                Priorizamos alta performance, contraste otimizado para Dark Mode e legibilidade técnica absoluta.
+            </p>
+        </header>
+
+        <!-- Cores Section -->
+        <section id="cores" class="mb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="font-brand text-3xl font-bold">01. Paleta de Cores</h2>
+                <div class="h-[1px] flex-grow bg-[--border-color]"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Color 1 -->
+                <div class="group cursor-pointer" onclick="copyHex('#0D1117')">
+                    <div class="h-48 rounded-t-lg border border-[--border-color] bg-[#0D1117] relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 text-xs font-mono">
+                            Clique para copiar HEX
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[#161B22] border-x border-b border-[--border-color] rounded-b-lg">
+                        <h3 class="font-brand font-bold text-lg mb-1">Deep Terminal Blue</h3>
+                        <p class="font-mono text-[--orange] text-sm mb-3">#0D1117</p>
+                        <p class="text-[--comment-grey] text-xs leading-normal">Fundo principal. Usado em 90% das superfícies para garantir o aspecto de terminal.</p>
+                    </div>
+                </div>
+
+                <!-- Color 2 -->
+                <div class="group cursor-pointer" onclick="copyHex('#FF6B35')">
+                    <div class="h-48 rounded-t-lg bg-[#FF6B35] relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 text-xs font-mono text-white">
+                            Clique para copiar HEX
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[#161B22] border-x border-b border-[--border-color] rounded-b-lg">
+                        <h3 class="font-brand font-bold text-lg mb-1">Squarecom Orange</h3>
+                        <p class="font-mono text-[--orange] text-sm mb-3">#FF6B35</p>
+                        <p class="text-[--comment-grey] text-xs leading-normal">Acento & Ação. CTAs, ícones ativos, estados de hover e o cursor do prompt.</p>
+                    </div>
+                </div>
+
+                <!-- Color 3 -->
+                <div class="group cursor-pointer" onclick="copyHex('#E6E6E6')">
+                    <div class="h-48 rounded-t-lg bg-[#E6E6E6] relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 text-xs font-mono text-gray-800">
+                            Clique para copiar HEX
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[#161B22] border-x border-b border-[--border-color] rounded-b-lg">
+                        <h3 class="font-brand font-bold text-lg mb-1">Code White</h3>
+                        <p class="font-mono text-[--orange] text-sm mb-3">#E6E6E6</p>
+                        <p class="text-[--comment-grey] text-xs leading-normal">Texto Primário. Branco atenuado para reduzir a fadiga ocular em telas brilhantes.</p>
+                    </div>
+                </div>
+
+                <!-- Color 4 -->
+                <div class="group cursor-pointer" onclick="copyHex('#A0A0A0')">
+                    <div class="h-48 rounded-t-lg bg-[#A0A0A0] relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 text-xs font-mono text-white">
+                            Clique para copiar HEX
+                        </div>
+                    </div>
+                    <div class="p-5 bg-[#161B22] border-x border-b border-[--border-color] rounded-b-lg">
+                        <h3 class="font-brand font-bold text-lg mb-1">Comment Grey</h3>
+                        <p class="font-mono text-[--orange] text-sm mb-3">#A0A0A0</p>
+                        <p class="text-[--comment-grey] text-xs leading-normal">Texto Secundário. Legendas e placeholders, emulando comentários de código.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipografia Section -->
+        <section id="tipografia" class="mb-32">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="font-brand text-3xl font-bold">02. Sistema Tipográfico</h2>
+                <div class="h-[1px] flex-grow bg-[--border-color]"></div>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Primária -->
+                <div class="grid md:grid-cols-3 gap-8 items-start">
+                    <div class="col-span-1">
+                        <h3 class="font-brand font-bold text-xl mb-2">Primária: Space Grotesk</h3>
+                        <p class="text-[--comment-grey] text-sm">Uso: Títulos, Marca e Impacto.</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-[--border-color] text-[--code-white] text-[10px] font-mono rounded">BOLD 700</span>
+                            <span class="px-2 py-1 bg-[--border-color] text-[--code-white] text-[10px] font-mono rounded">REGULAR 400</span>
+                        </div>
+                    </div>
+                    <div class="col-span-2 border border-[--border-color] p-8 rounded-lg bg-[#161B22]/50">
+                        <h4 class="font-brand font-bold text-4xl mb-4 leading-tight">Engenharia Front-End de Alta Performance.</h4>
+                        <p class="font-brand font-normal text-xl text-[--comment-grey]">Vanguarda geométrica para comunicações institucionais.</p>
+                    </div>
+                </div>
+
+                <!-- Secundária -->
+                <div class="grid md:grid-cols-3 gap-8 items-start">
+                    <div class="col-span-1">
+                        <h3 class="font-brand font-bold text-xl mb-2">Secundária: Inter</h3>
+                        <p class="text-[--comment-grey] text-sm">Uso: Corpo de texto, UI e Leitura.</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-[--border-color] text-[--code-white] text-[10px] font-mono rounded">MEDIUM 500</span>
+                            <span class="px-2 py-1 bg-[--border-color] text-[--code-white] text-[10px] font-mono rounded">REGULAR 400</span>
+                        </div>
+                    </div>
+                    <div class="col-span-2 border border-[--border-color] p-8 rounded-lg bg-[#161B22]/50">
+                        <p class="font-ui font-medium text-lg text-[--orange] mb-4">Botões e Navegação</p>
+                        <p class="font-ui font-normal text-base text-[--code-white] leading-relaxed">
+                            Desenvolvemos interfaces web rápidas, escaláveis e fáceis de manter, focando na melhor experiência para o usuário (UX) e para o desenvolvedor (DX). Otimizada para telas, a Inter garante legibilidade mesmo em tamanhos reduzidos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Técnica -->
+                <div class="grid md:grid-cols-3 gap-8 items-start">
+                    <div class="col-span-1">
+                        <h3 class="font-brand font-bold text-xl mb-2">Técnica: JetBrains Mono</h3>
+                        <p class="text-[--comment-grey] text-sm">Uso: Código, Dados e Detalhes.</p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-2 py-1 bg-[--border-color] text-[--code-white] text-[10px] font-mono rounded">REGULAR 400</span>
+                        </div>
+                    </div>
+                    <div class="col-span-2 terminal-window p-6 font-mono text-sm leading-relaxed">
+                        <div class="text-[--orange] mb-2">>_ npm install squarecom-ui</div>
+                        <div class="text-[--comment-grey] mb-4">// Initialize the system architecture</div>
+                        <div class="text-[--code-white] grid grid-cols-1 gap-1">
+                            <div><span class="text-[--orange]">const</span> stack = ['React', 'Next.js', 'Tailwind'];</div>
+                            <div><span class="text-[--orange]">export default</span> Squarecom;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section id="preview" class="mb-20">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="font-brand text-3xl font-bold">03. UI Preview</h2>
+                <div class="h-[1px] flex-grow bg-[--border-color]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Card Sample -->
+                <div class="bg-[#161B22] border border-[--border-color] rounded-xl overflow-hidden p-8">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="font-mono text-[--orange] text-xs">MODULE_042</span>
+                        <div class="h-2 w-2 rounded-full bg-[--orange] animate-pulse"></div>
+                    </div>
+                    <h3 class="font-brand font-bold text-3xl mb-4">Dashboard de Performance</h3>
+                    <p class="font-ui text-[--comment-grey] mb-8 leading-relaxed">Visualize métricas em tempo real com nossa infraestrutura otimizada para terminais modernos.</p>
+                    <button class="bg-[--orange] hover:bg-[#e85a25] text-white px-6 py-3 rounded font-ui font-medium transition-all transform hover:scale-105 active:scale-95">
+                        Iniciar Deploy
+                    </button>
+                </div>
+
+                <!-- Terminal Sample -->
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                        <div class="ml-4 text-[10px] text-[--comment-grey] font-mono">bash — squarecom-terminal</div>
+                    </div>
+                    <div class="p-6 font-mono text-sm space-y-2">
+                        <p><span class="text-[--orange]">visitor@squarecom</span>:<span class="text-blue-400">~</span>$ fetch status</p>
+                        <p class="text-[--comment-grey]">-- Conectando aos servidores da marca...</p>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div class="border border-[--border-color] p-3 rounded">
+                                <span class="block text-[--comment-grey] text-[10px]">CORES</span>
+                                <span class="text-[--orange]">OK [PASS]</span>
+                            </div>
+                            <div class="border border-[--border-color] p-3 rounded">
+                                <span class="block text-[--comment-grey] text-[10px]">FONTE</span>
+                                <span class="text-[--orange]">OK [PASS]</span>
+                            </div>
+                        </div>
+                        <p class="mt-4"><span class="text-[--orange]">visitor@squarecom</span>:<span class="text-blue-400">~</span>$ <span class="inline-block w-2 h-4 bg-[--orange] align-middle"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-[--border-color] py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:row justify-between items-center gap-6">
+            <div class="font-brand font-bold text-xl tracking-tight">SQUARECOM</div>
+            <p class="font-mono text-[--comment-grey] text-xs">© 2024 DESIGN_SYSTEM // ALL RIGHTS RESERVED</p>
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded bg-[--border-color] hover:bg-[--orange] transition-colors cursor-pointer"></div>
+                <div class="w-8 h-8 rounded bg-[--border-color] hover:bg-[--orange] transition-colors cursor-pointer"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyHex(hex) {
+            const tempInput = document.createElement('input');
+            tempInput.value = hex;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
